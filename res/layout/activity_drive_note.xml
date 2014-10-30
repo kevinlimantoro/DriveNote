@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/padding_medium"
+        tools:context=".DriveNote" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="0dip" 
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/LocalButton"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_margin="0dip"
+                android:layout_weight="0.5"
+                android:onClick="loadLocalMemory"
+                android:text="Local"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/DriveButton"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_margin="0dip"
+                android:layout_weight="0.5"
+                android:onClick="LoadDrive"
+                android:text="Drive"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip" 
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/NoteButton"
+                android:layout_width="0dip"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:onClick="OpenNote"
+                android:text="Note" />
+
+            <Button
+                android:id="@+id/SyncList"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:onClick="OpenSyncList"
+                android:text="Sync List" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

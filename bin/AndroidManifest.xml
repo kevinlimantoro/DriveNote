@@ -1,0 +1,78 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kevin.thesis.drivenote"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="10" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:persistent="false"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".DriveNote"
+            android:label="@string/title_activity_drive_note" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LocalList"
+            android:label="Local List" />
+        <activity
+            android:name=".NoteEdit"
+            android:label="Notepad" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="file" />
+                <data android:mimeType="text/plain" />
+                <data android:pathPattern=".*\\.txt" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DriveActivity"
+            android:label="@string/title_activity_drive" >
+        </activity>
+
+        <receiver android:name=".SyncAlarm" />
+        <receiver android:name=".BootAlarm" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".SyncService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".PermissionList"
+            android:label="@string/title_activity_permission_list" >
+        </activity>
+        <activity
+            android:name=".OfflineList"
+            android:label="Offline Sync List" >
+        </activity>
+        <activity
+            android:name=".FileProperty"
+            android:label="@string/title_activity_file_property" >
+        </activity>
+    </application>
+
+</manifest>
